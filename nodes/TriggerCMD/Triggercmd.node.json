@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.triggercmd",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Automation", "Productivity"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://docs.triggercmd.com"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.triggercmd.com"
+			}
+		]
+	}
+}

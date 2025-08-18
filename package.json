@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-triggercmd",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Run commands on your computers and devices from n8n workflows using TriggerCMD.",
   "keywords": [
     "n8n-community-node-package"
@@ -33,12 +33,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/TriggerCMDApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/TriggerCMD/TriggerCMD.node.js"
     ]
   },
   "devDependencies": {

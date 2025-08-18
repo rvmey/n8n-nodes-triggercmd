@@ -5,25 +5,19 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = 'https://your-docs-url';
+export class TriggerCMDApi implements ICredentialType {
+	name = 'triggercmdApi';
+	displayName = 'TriggerCMD API';
+	documentationUrl = 'https://docs.triggercmd.com';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Token',
-			name: 'token',
+			name: 'apiToken',
 			type: 'string',
 			default: '',
 			typeOptions: {
 				password: true,
 			}
-		},
-		{
-			displayName: 'Domain',
-			name: 'domain',
-			type: 'string',
-			default: 'https://httpbin.org',
 		},
 	];
 
@@ -35,7 +29,7 @@ export class HttpBinApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '={{"Bearer " + $credentials.token}}',
+				Authorization: '={{"Bearer " + $credentials.apiToken}}',
 			},
 		},
 	};
@@ -43,8 +37,8 @@ export class HttpBinApi implements ICredentialType {
 	// The block below tells how this credential can be tested
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '={{$credentials?.domain}}',
-			url: '/bearer',
+			baseURL: 'https://triggercmd.com',
+			url: '/api/computer/list',
 		},
 	};
 }
