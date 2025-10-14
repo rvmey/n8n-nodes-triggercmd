@@ -8,7 +8,7 @@ import {
     IHttpRequestMethods,
 } from 'n8n-workflow';
 
-export class Triggercmd implements INodeType {
+export class TriggerCMD implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'TriggerCMD',
 		name: 'triggercmd',
