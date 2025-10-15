@@ -69,29 +69,25 @@ export class TriggerCMD implements INodeType {
 				const computerName = this.getNodeParameter('computerName', i) as string;
 				const commandName = this.getNodeParameter('commandName', i) as string;
 				const parameters = this.getNodeParameter('parameters', i) as string;
-				const apiToken = credentials.apiToken as string;
-
 				const url = `https://www.triggercmd.com/api/run/trigger`;
 				
 				const options = {
 					method: 'POST' as IHttpRequestMethods,
-					uri: url,
+					url: url,
 					qs: {
 						params: parameters,
 						computer: computerName,
 						trigger: commandName,
 					},
-					headers: {
-						Authorization: `Bearer ${apiToken}`,
-					},
 					json: true,
 				};
 
-				const response = await this.helpers.request(options);
+				const response = await this.helpers.httpRequestWithAuthentication.call(this, 'triggercmdApi', options);
 
 				returnData.push({
 					json: response,
-					binary: {},
+					pairedItem: { item: i },
+					binary: {}
 				});
 			} catch (error) {
 				if (this.continueOnFail()) {
