@@ -78,6 +78,7 @@ export class TriggerCMD implements INodeType {
 						params: parameters,
 						computer: computerName,
 						trigger: commandName,
+						sender: 'n8n',
 					},
 					json: true,
 				};
